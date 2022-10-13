@@ -12,18 +12,21 @@ struct CategoryView: View {
     var body: some View {
         NavigationView{
             List(viewModel.categorys, id: \.id){ category in
-                NavigationLink(destination: DifficultyView()){
+                NavigationLink(destination: DifficultyView().onAppear{viewModel.setSelectedCategory(category: category)}) {
                     Text(category.name)
-                    
-                    }
-                .onTapGesture {
-                    viewModel.setSelectedCategory(category: category)
                 }
-                }
-            .navigationTitle("Categorie's")
             }
+            /*List(viewModel.categorys, id: \.id){ category in
+                NavigationLink(destination: DifficultyView()) {
+                    Text(category.name)
+                }
+                .simultaneousGesture(TapGesture().onEnded {
+                    viewModel.setSelectedCategory(category: category)
+                })
+            }*/
+            .navigationTitle("Categories")
+        }
         .navigationBarBackButtonHidden(true)
-       
         .onAppear{
             viewModel.loadCategorys()
         }

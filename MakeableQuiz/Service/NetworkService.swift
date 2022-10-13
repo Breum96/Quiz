@@ -14,7 +14,6 @@ class NetworkService{
         
         if  let cateogry = cateogry {
             url.append(queryItems:[URLQueryItem(name: "category", value: cateogry.id.description)])
-            
         }
     
         

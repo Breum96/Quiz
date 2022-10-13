@@ -12,14 +12,18 @@ struct DifficultyView: View {
     var body: some View {
         NavigationView{
             List(viewModel.difficultys, id: \.rawValue) { difficulty in
+                NavigationLink(destination: QuizView().onAppear{viewModel.setSelectedDifficulty(difficulty: difficulty)}){
+                    Text(difficulty.rawValue)
+                }
+            }
+            /*List(viewModel.difficultys, id: \.rawValue) { difficulty in
                 NavigationLink(destination: QuizView()){
                     Text(difficulty.rawValue)
                 }
                 .onTapGesture {
                     viewModel.setSelectedDifficulty(difficulty: difficulty)
                 }
-                
-            }
+            }*/
             .navigationTitle("Difficulty")
         }
         .navigationBarBackButtonHidden(true)

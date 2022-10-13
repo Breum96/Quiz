@@ -15,13 +15,12 @@ struct AnswerComponent: View {
     var body: some View {
         HStack{
            Image(systemName: "circle")
-            
+
             Text(answer.text)
                 .bold()
             
             if isSelected {
                 Spacer()
-                
                 Image(systemName: answer.isCorrect ? "checkmark.circle" : "x.circle")
                     .foregroundColor(answer.isCorrect ? .green : .red)
             }
@@ -44,7 +43,7 @@ struct AnswerComponent: View {
 
 struct AnswerComponent_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerComponent(answer: Answer(text: "yo", isCorrect: false))
+        AnswerComponent(answer: Answer(text: "Option 1", isCorrect: false))
             .environmentObject(QuizViewModel())
     }
 }

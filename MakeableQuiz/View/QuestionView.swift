@@ -13,19 +13,15 @@ struct QuestionView: View {
         
         VStack(spacing: 50){
             
-            
             VStack(spacing: 20){
                 Text(viewModel.question)
                     .font(.title2)
                     .padding(40)
                     
-                
-                
                 ForEach(viewModel.answerChoices, id: \.id) { answer in
                     AnswerComponent(answer: answer)
                         .environmentObject(viewModel)
                 }
-                
             }
             
             Button("Next Question"){

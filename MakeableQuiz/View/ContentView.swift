@@ -17,8 +17,6 @@ struct ContentView: View {
                     .font(.title)
                     .bold()
                     .foregroundColor(.blue)
-                
-                
                 NavigationLink {
                     CategoryView()
                         .environmentObject(viewModel)
