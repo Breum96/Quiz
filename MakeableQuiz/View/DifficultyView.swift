@@ -11,7 +11,7 @@ struct DifficultyView: View {
     @EnvironmentObject var viewModel : QuizViewModel
     var body: some View {
         NavigationView{
-            List(viewModel.difficultys, id: \.rawValue) { difficulty in
+            List(viewModel.difficulties, id: \.rawValue) { difficulty in
                 NavigationLink(destination: QuizView().onAppear{viewModel.setSelectedDifficulty(difficulty: difficulty)}){
                     Text(difficulty.rawValue)
                 }

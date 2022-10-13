@@ -10,8 +10,8 @@ import Foundation
 @MainActor
 class QuizViewModel: ObservableObject {
     @Published var questions : [Question] = []
-    @Published var categorys : [TriviaCategory] = []
-    @Published var difficultys = Difficulty.allCases
+    @Published var categories : [TriviaCategory] = []
+    @Published var difficulties = Difficulty.allCases
     @Published var answerChoices: [Answer] = []
     
     @Published var selectedCategory : TriviaCategory? = nil
@@ -49,7 +49,7 @@ class QuizViewModel: ObservableObject {
         Task(priority: .high) {
             do {
                 let category = try await networkservice.fetchCategory()
-                categorys = category.triviaCategories
+                categories = category.triviaCategories
             }
             catch{
                 print("\(error)")
