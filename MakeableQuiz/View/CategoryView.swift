@@ -11,7 +11,7 @@ struct CategoryView: View {
     @EnvironmentObject var viewModel : QuizViewModel
     var body: some View {
         NavigationView{
-            List(viewModel.categorys, id: \.id){ category in
+            List(viewModel.categories, id: \.id){ category in
                 NavigationLink(destination: DifficultyView().onAppear{viewModel.setSelectedCategory(category: category)}) {
                     Text(category.name)
                 }

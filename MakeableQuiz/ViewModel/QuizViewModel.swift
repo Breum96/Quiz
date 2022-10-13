@@ -24,8 +24,6 @@ class QuizViewModel: ObservableObject {
     @Published var question : AttributedString = ""
     @Published var score = 0
     
-
-    
     private let networkservice = NetworkService()
     
     
@@ -35,7 +33,6 @@ class QuizViewModel: ObservableObject {
                 let quiz = try await networkservice.fetchQuiz(cateogry: selectedCategory, difficulty: selectedDifficulty)
                 questions = quiz.questions
                 length = questions.count
-                print(questions.count)
                 setQuestion()
             }
             catch{
@@ -59,12 +56,10 @@ class QuizViewModel: ObservableObject {
     
     func setSelectedCategory(category : TriviaCategory) {
         selectedCategory = category
-        print(category.name)
     }
     
     func setSelectedDifficulty(difficulty : Difficulty) {
         selectedDifficulty = difficulty
-        print(difficulty.rawValue)
        
     }
     
@@ -72,10 +67,8 @@ class QuizViewModel: ObservableObject {
         if index + 1 < length {
             index += 1
             setQuestion()
-            print(end)
         }else{
             end = true
-            print(end)
         }
     }
     
